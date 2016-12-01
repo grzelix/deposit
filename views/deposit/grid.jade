@@ -1,0 +1,28 @@
+extends ..\financesubmenu
+block append stylesheets
+  link(rel='stylesheet', href='//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+  link(rel='stylesheet', href='/stylesheets/deposit.css')
+  link(rel='stylesheet', href='//cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.css')
+
+block append javascripts
+  script(src='/javascripts/deposit/grid.js')
+  script(src='//code.jquery.com/ui/1.11.4/jquery-ui.js')
+  script(src='//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js')
+block append pagebody
+  section(class="main-content")
+    div
+      span
+        a(href="/deposit/new") New deposit
+      span
+        a(href="/deposit/dashboard") Dashboard
+      span
+        a(href="/deposit/grid") Grid of deposits
+    table(id="activedeposits")
+    div(style="height:100px")
+    table(id="historicdeposits")
+    form(name="delete-deposit", method="get")
+      div.input
+        span.label Id Lokaty
+        input(type="text", name="id")
+      div.actions
+        input(type="submit", value="delete")

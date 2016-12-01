@@ -1,0 +1,24 @@
+extends layout
+
+block stylesheets
+  link(rel='stylesheet', href='/stylesheets/deposit.css')
+
+block javascripts
+ script(src='/javascripts/finance.js')
+ script(src='/canvasjs/canvasjs.min.js')
+block submenu
+  section(class="featured")
+    div(class="content-wrapper")
+        hgroup(class="title")
+          h1=title 
+          h2 Start page to explore history of home finances.
+        p(style="font-weight: bold; color:black") Dashboard for all kinds of profits.
+  section(class="content-wrapper")
+    nav(class="submenu level1")
+      ul
+        li
+          a(href="/deposit/dashboard") Deposits
+        li
+          a(href="/deposit/dashboard") Cashback
+        li
+          a(href="/bankaccount/dashboard") Percentage from accounts

@@ -1,0 +1,49 @@
+{
+  "name": "WebMatrixExpressStarter",
+  "version": "0.1.0",
+  "author": "The WebMatrix Team <webmatrix@microsoft.com>",
+  "description": "A complete boilerplate for building node applications on Windows Azure (or wherever)",
+  "contributors": [
+    {
+      "name": "Justin Beckwith",
+      "email": "justbe@microsoft.com"
+    }
+  ],
+  "main": "./server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MicrosoftWebMatrix/ExpressStarter.git"
+  },
+  "keywords": [
+    "azure",
+    "boilerplate",
+    "express"
+  ],
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect": ">=1.8.5",
+    "cookie-parser": "^1.4.3",
+    "everyauth": ">= 0.2.29",
+    "express": "^4.14.0",
+    "fincalc": "^1.2.0",
+    "jade": ">= 0.18.0",
+    "jfs": "^0.2.6",
+    "less": ">= 1.1.5",
+    "less-middleware": "^2.2.0",
+    "method-override": "^2.3.7",
+    "moment": "^2.10.6",
+    "nconf": ">= 0.8.0",
+    "node-uuid": ">= 1.3.3",
+    "recaptcha": ">=1.1.0",
+    "socket.io": ">= 0.8.7",
+    "underscore": "^1.8.3"
+  },
+  "noAnalyze": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=0.6.14"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.2"
+  }
+}

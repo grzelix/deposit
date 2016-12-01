@@ -1,0 +1,28 @@
+extends financesubmenu
+ 
+block append stylesheets
+  link(rel='stylesheet', href='//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+  link(rel='stylesheet', href='/stylesheets/deposit.css')
+
+block append javascripts
+ script(src='/javascripts/deposit/new.js')
+ script(src='//code.jquery.com/ui/1.11.4/jquery-ui.js')
+
+block append pagebody
+  section(class="main-content")
+    div
+      div(id="profit", class="widget-block")
+        div(class="number-widget orange") 
+          span(class="widget-text") Total profit:
+          span(class="widget-value", id="profitSpan")
+      div(id="indeposits", class="widget-block")
+        div(class="number-widget blue") 
+          span(class="widget-text") Deposits profit:
+          span(class="widget-value", id="profitDepositSpan")
+      div(class="widget-block") 
+        div(class="number-widget orange") 
+          span(class="widget-text") Accounts profit:
+          span(class="widget-value", id="profitAccountSpan")       
+      div(style="clear:both")
+      div(id="profitByMonth", style="height: 400px; width: 100%;")
+      div(id="profitByMonth2", style="height: 400px; width: 100%;")

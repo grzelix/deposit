@@ -1,0 +1,88 @@
+extends ..\financesubmenu
+block append stylesheets
+  link(rel='stylesheet', href='//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+  link(rel='stylesheet', href='/stylesheets/deposit.css')
+
+block append javascripts
+ script(src='/javascripts/deposit/new.js')
+ script(src='//code.jquery.com/ui/1.11.4/jquery-ui.js')
+
+block append pagebody
+  section(class="main-content")
+    div
+      span
+        a(href="/deposit/new") New deposit
+      span
+        a(href="/deposit/dashboard") Dashboard
+      span
+        a(href="/deposit/grid") Grid of deposits
+    h1= title
+    div
+      button(id="timub_m") TiMUB Martyna
+      button(id="timub_k") TiMUB Krzysztof
+      button(id="prevDate") Jeden dzień wcześniej
+      button(id="nextDate") Jeden dzień później
+      div(style="margin-bottom:20px")
+    form(name="add-deposit", method="post", action="/deposit/new", style="width:40%;float:left")
+      div(style="widht:50%;float:left")
+        div.input
+            span.label Nazwa Lokaty
+            input(type="text", name="title", value=deposit.title)
+        div.input
+            span.label Kwota
+            input(type="number", id="amount", name="amount", step="0.01", value=deposit.amount)
+        div.input
+          span.label Bank:
+          for item in banks
+              br
+              if deposit.bank == item
+                input(type="radio", name="bank", value="#{item}", checked=true)
+                | #{item}
+              else
+                input(type="radio", name="bank", value="#{item}")
+                | #{item}
+      div(style="widht:50%;float:left")
+        div.input
+          span.label Właściciel:
+            for item in owners
+              br
+              if deposit.owner == item
+                input(type="radio", name="owner", value="#{item}", checked=true)
+                | #{item}
+              else
+                input(type="radio", name="owner", value="#{item}")
+                | #{item}
+        div.input
+          span.label Początek:
+          input(type='text', name='startDate', id='startDate', value=deposit.startDate)
+        div.input
+          span.label Koniec:
+          input(type='text', name='endDate', id='endDate', value=deposit.endDate)
+        div.input
+          span.label Oprocentowanie
+          input(type='number', id="perc", name='perc', step='0.01', value=deposit.perc)
+        unless deposit.id == "0"
+          div.input
+            span.label Zysk
+            input(type='number', id="profit", name="profit", step='0.01', value=deposit.profit)
+          div.input
+            label(for="active") Aktywna
+            input(type="checkbox", id="active", name="active", checked=deposit.active)
+          div.input
+            label(for="active") Załóż na następny okres
+            input(type="checkbox", id="nextPeriod", name="nextPeriod")
+        div.actions
+            input(type="hidden", name="id", value=deposit.id)
+            if deposit.id != "0"
+              input(type="submit", value="end")
+            else
+              input(type="submit", value="add")
+    div(style="float:left")
+      if deposit.id != "0"
+        div.input
+          span.label Lokata plus zysk
+          input(type='number', id='endDepositValue', disabled="disabled")
+      if deposit.id == "0"
+        div.input
+          span.label Przewidywany zysk 
+          input(type='number', id='estimatedProfit', disabled="disabled")

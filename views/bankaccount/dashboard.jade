@@ -1,0 +1,23 @@
+extends ..\financesubmenu
+block stylesheets
+  link(rel='stylesheet', href='/stylesheets/deposit.css')
+
+block javascripts
+ script(src='/javascripts/bankaccount/dashboard.js')
+ script(src='/canvasjs/canvasjs.min.js')
+block pagebody
+  section(class="main-content")
+    div
+      span
+        a(href="/bankaccount/new") New profit from account
+      span
+        a(href="/bankaccount/dashboard") Dashboard
+      span
+        a(href="/bankaccount/grid") Grid of bank accounts profit
+    div
+      div(id="profit", class="widget-block")
+        div(class="number-widget orange") 
+          span(class="widget-text") General profit:
+          span(class="widget-value", id="profitSpan")
+    div(style="clear:both")
+    div(id="profitByMonth", style="height: 400px; width: 100%;")

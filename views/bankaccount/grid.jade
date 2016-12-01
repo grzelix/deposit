@@ -1,0 +1,21 @@
+extends ..\financesubmenu
+block stylesheets
+  link(rel='stylesheet', href='//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+  link(rel='stylesheet', href='/stylesheets/deposit.css')
+  link(rel='stylesheet', href='//cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.css')
+
+block javascripts
+ script(src='/javascripts/bankaccount/grid.js')
+ script(src='//code.jquery.com/ui/1.11.4/jquery-ui.js')
+ script(src='//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js')
+
+block pagebody
+  section(class="main-content")
+    div
+      span
+        a(href="/bankaccount/new") New profit from account
+      span
+        a(href="/bankaccount/dashboard") Dashboard
+      span
+        a(href="/bankaccount/grid") Grid of bank accounts profit
+    table(id="profitfromaccounts")

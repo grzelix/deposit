@@ -1,0 +1,62 @@
+extends ..\financesubmenu
+block append stylesheets
+  link(rel='stylesheet', href='/stylesheets/deposit.css')
+
+block append javascripts
+ script(src='/javascripts/deposit/dashboard.js')
+ script(src='/canvasjs/canvasjs.min.js')
+block append pagebody
+  section(class="main-content")
+    div
+      span
+        a(href="/deposit/new") New deposit
+      span
+        a(href="/deposit/dashboard") Dashboard
+      span
+        a(href="/deposit/grid") Grid of deposits
+    div
+      div(id="profit", class="widget-block")
+        div(class="number-widget orange") 
+          span(class="widget-text") Estimated profit:
+          span(class="widget-value", id="estimatedProfitSpan") 
+      div(id="indeposits", class="widget-block")
+        div(class="number-widget blue") 
+          span(class="widget-text") Total profit:
+          span(class="widget-value", id="profitSpan")
+      div(class="widget-block") 
+        div(class="number-widget orange") 
+          span(class="widget-text") Day profit:
+          span(class="widget-value", id="dayProfit")
+      div(class="widget-block")
+        div(class="number-widget blue") 
+          span(class="widget-text") Total deposits:
+          span(class="widget-value", id="depositsSpan")
+      div(class="widget-block")
+        div(class="number-widget orange") 
+          span(class="widget-text") Days to end:
+          span(class="widget-value", id="dayToEndSpan")
+      div(class="widget-block")
+        div(class="number-widget blue") 
+          span(class="widget-text") Average percentage:
+          span(class="widget-value", id="averagePercSpan")
+    div(style="clear:both")
+    div(class="filterToolbar")
+      input(type="radio", id="radioMartyna", name="owner", value="Martyna")
+      label(for="radioMartyna") Martyna
+      input(type="radio", id="radioKrzysztof", name="owner", value="Krzysztof")
+      label(for="radioKrzysztof") Krzysztof
+      input(type="radio", id="radioGetin", name="bank", value="Getin") 
+      label(for="radioGetin") Getin
+      input(type="radio", id="radioIdeaBank", name="bank", value="IdeaBank") 
+      label(for="radioIdeaBank") IdeaBank
+      input(id="reset", type="button", value="Reset") 
+      input(id="filter", type="button", value="Filter")
+      div(id="areaChart", style="height: 300px; width: 100%;")
+    div(id="gantChart", style="height: 400px; width: 100%;")
+    div(id="stackedBar2", style="height: 400px; width: 100%;")
+    div
+      div(id="ownerPieChartContainer", class="piechart-block")
+      div(id="bankPieChartContainer", class="piechart-block")
+    div(style="clear:both")
+    div(id="profitAreaChart", style="height: 400px; width: 100%;")
+    div(id="profitByMonth", style="height: 400px; width: 100%;")

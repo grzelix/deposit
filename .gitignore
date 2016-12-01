@@ -1,0 +1,10 @@
+db
+node_modules
+server.js.logs
+server.js.debug
+settings.json
+*.suo
+*.dll
+*.cache
+*.dat
+*.FileListAbsolute.txt

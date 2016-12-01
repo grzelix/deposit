@@ -1,0 +1,49 @@
+extends ..\financesubmenu
+block stylesheets
+  link(rel='stylesheet', href='//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+  link(rel='stylesheet', href='/stylesheets/deposit.css')
+
+block javascripts
+ script(src='/javascripts/bankaccount/new.js')
+ script(src='//code.jquery.com/ui/1.11.4/jquery-ui.js')
+
+block pagebody 
+  section(class="main-content")
+    div
+      span
+        a(href="/bankaccount/new") New profit from account
+      span
+        a(href="/bankaccount/dashboard") Dashboard
+      span
+        a(href="/bankaccount/grid") Grid of bank accounts profit
+    block content
+        h1= title
+        form(name="add-bankAccountProfit", method="post", action="/bankaccount/new")
+            div.input
+              span.label Bank
+              select(name="bank") 
+                for item in banks
+                  if bankAccountProfit.bank == item
+                    option(selected="true") #{item}
+                  else
+                    option #{item}
+            div.input
+              span.label Właściciel
+              select(name="owner")
+                for item in owners
+                  if bankAccountProfit.owner == item
+                    option(selected="true") #{item}
+                  else
+                    option #{item}
+            div.input
+              span.label Data:
+              input(type='text', name='date', id='date', value=bankAccountProfit.date)
+            div.input
+              span.label Description
+              input(type='text', name='desc', value=bankAccountProfit.desc)
+              div.input
+                span.label Zysk
+                input(type='number', name="profit", step='0.01', value=bankAccountProfit.profit)
+            div.actions
+                input(type="hidden", name="id", value=bankAccountProfit.id)
+                input(type="submit", value="add")

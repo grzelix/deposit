@@ -191,7 +191,7 @@ var app = express();
 
 //app.configure(function() {
     app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
+    app.set('view engine', 'pug');
     app.set('view options', { layout: true });
 
 	app.use(bodyParser.urlencoded({extended: false}));
@@ -294,6 +294,9 @@ io.sockets.on('connection', function(socket) {
 **/
 
 //everyauth.helpExpress(app);
-app.listen(process.env.PORT || 3002);
-//console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+//app.listen(process.env.PORT || 3000);
+var listener = app.listen(process.env.PORT || 3000, function(){
+    console.log('Listening on port \x1b[32m%s\x1b[0m', listener.address().port); 
+});
+// console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 

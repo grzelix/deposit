@@ -33,24 +33,24 @@ block append pagebody
             input(type="number", id="amount", name="amount", step="0.01", value=deposit.amount)
         div.input
           span.label Bank:
-          for item in banks
+          each item in banks
               br
               if deposit.bank == item
-                input(type="radio", name="bank", value="#{item}", checked=true)
+                input(type="radio", name="bank", value=item, checked=true)
                 | #{item}
               else
-                input(type="radio", name="bank", value="#{item}")
+                input(type="radio", name="bank", value=item)
                 | #{item}
       div(style="widht:50%;float:left")
         div.input
           span.label Właściciel:
-            for item in owners
+            each item in owners
               br
               if deposit.owner == item
-                input(type="radio", name="owner", value="#{item}", checked=true)
+                input(type="radio", name="owner", value=item, checked=true)
                 | #{item}
               else
-                input(type="radio", name="owner", value="#{item}")
+                input(type="radio", name="owner", value=item)
                 | #{item}
         div.input
           span.label Początek:

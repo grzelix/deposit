@@ -22,7 +22,7 @@ block pagebody
             div.input
               span.label Bank
               select(name="bank") 
-                for item in banks
+                each item in banks
                   if bankAccountProfit.bank == item
                     option(selected="true") #{item}
                   else
@@ -30,7 +30,7 @@ block pagebody
             div.input
               span.label Właściciel
               select(name="owner")
-                for item in owners
+                each item in owners
                   if bankAccountProfit.owner == item
                     option(selected="true") #{item}
                   else
